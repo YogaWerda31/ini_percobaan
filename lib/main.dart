@@ -31,7 +31,16 @@ class _RandomWordsState  extends State<RandomWords> {
 final _suggestions = <WordPair>[];
   final _biggerFont = const TextStyle(fontSize: 18.0);
 
-    @override
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Startup Name Generator'),
+      ),
+      body:_buildSuggestions(),
+    );
+  }
+
   Widget _buildSuggestions() {
   return ListView.builder(
       padding: const EdgeInsets.all(16.0),
