@@ -1,66 +1,64 @@
-import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MyApp());
-}
-class MyApp extends StatelessWidget {
-  @override
+void main() => runApp(MyApp());
 
-Widget build(BuildContext context) {
+class MyApp extends StatelessWidget{
+  @override
+  Widget build(BuildContext context){
     return MaterialApp(
-      title: 'Flutter Demo',
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Welcome to Flutter'),
-        ),
-        body: Center(
-          child: RandomWords(),
-        ),
-      ),
-    ); 
-  }
-}
-
-class RandomWords extends StatefulWidget {
-  @override
-  _RandomWordsState createState() => _RandomWordsState();
-}
-
-class _RandomWordsState  extends State<RandomWords> {
-final _suggestions = <WordPair>[];
-  final _biggerFont = const TextStyle(fontSize: 18.0);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Startup Name Generator'),
-      ),
-      body:_buildSuggestions(),
+      title: 'Login',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primaryColor: Colors.black12,
+        
+      )
     );
   }
+}  
 
-  Widget _buildSuggestions() {
-  return ListView.builder(
-      padding: const EdgeInsets.all(16.0),
-      itemBuilder: /*1*/ (context, i) {
-        if (i.isOdd) return const Divider(); /*2*/
+class Home extends StatelessWidget{
+  @override
+  Widget build(BuildContext context){
+    return new Scaffold(
+      body:
+      new Center(
+        child: new Text("Hallo World"),
+      )
+    );
+  }
+}
+//Login Page//
+class Login extends StatefulWidget{
+  @override
+  _LoginState createState() => _LoginState();
+}
 
-        final index = i ~/ 2; /*3*/
-        if (index >= _suggestions.length) {
-          _suggestions.addAll(generateWordPairs().take(10)); /*4*/
-        }
-        return _buildRow(_suggestions[index]);
-      });
-    }
+class _LoginState extends State<Login>{
+  @override
+  Widget build(BuildContext context){
+    return new Scaffold(
+      body: Container(
+        width: MediaQuery.of(context).size.width,
+        padding: const EdgeInsets.all(8),
+        color: Colors.lightBlue,
+        child: Column(
+          children: <Widget> [
+            Container(
+              width: 100,
+              height: 100,
+              decoration: BoxDecoration(
+                color: Colors.black87,
+                shape: BoxShape.circle,
 
-  Widget _buildRow(WordPair pair) {
-  return ListTile(
-    title: Text(
-      pair.asPascalCase,
-      style: _biggerFont,
-    ),
-  );
- }
+              ),
+              child: Center(
+                child: Icon(Icons.person, size:50, color: Colors.white10,),
+
+              )
+            )
+          ]
+        )
+      )
+    );
+  }
 }
