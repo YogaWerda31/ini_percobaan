@@ -6,27 +6,16 @@ class MyApp extends StatelessWidget{
   @override
   Widget build(BuildContext context){
     return MaterialApp(
-      title: 'Login',
+      title: 'Home',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: Colors.black12,
+        primaryColor: Colors.black,
         
       )
     );
   }
 }  
 
-class Home extends StatelessWidget{
-  @override
-  Widget build(BuildContext context){
-    return new Scaffold(
-      body:
-      new Center(
-        child: new Text("Hallo World"),
-      )
-    );
-  }
-}
 //Login Page//
 class Login extends StatefulWidget{
   @override
@@ -53,11 +42,64 @@ class _LoginState extends State<Login>{
               ),
               child: Center(
                 child: Icon(Icons.person, size:50, color: Colors.white10,),
+              ),
+            ),
 
+            SizedBox(height: 20,),
+
+            Text("Selamat Datang di Sports Nutrition, Silahkan Login", style: TextStyle(fontSize: 20, color: Colors.black87),),
+
+            SizedBox(height: 20,),
+
+            TextFormField(
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.black87)
+                ),
+                prefixIcon: Icon(Icons.person, size: 40,),
+                hintText: "Masukkan Username",
+                hintStyle: TextStyle(color: Colors.black87),
+                labelText: "Username",
+                labelStyle: TextStyle(color: Colors.black87)
               )
-            )
-          ]
-        )
+            ),
+
+            SizedBox(height: 20,),
+
+             TextFormField(
+               obscureText: true,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.black87)
+                ),
+                prefixIcon: Icon(Icons.lock, size: 40,),
+                hintText: "Masukkan Password",
+                hintStyle: TextStyle(color: Colors.black87),
+                labelText: "Password",
+                labelStyle: TextStyle(color: Colors.black87)
+              )
+             ),
+
+             SizedBox(height: 20,),
+
+             Card(
+               color: Colors.black87,
+               elevation: 5,
+               child: Container(
+                 height: 50,
+                 child: InkWell(
+                   splashColor: Colors.white,
+                   onTap: () {},
+                   child: Center(
+                     child: Text("Masuk", style: TextStyle(fontSize: 20, color: Colors.white,)),
+                   ),
+                 )
+               ),
+             )
+          ],
+        ),
       )
     );
   }
