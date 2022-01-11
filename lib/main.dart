@@ -83,8 +83,8 @@ void _pilihjk(String value){
 
                 ),
                  new RadioListTile(
-                  value: "Laki - Laki",
-                  title: new Text("Laki - Laki"),
+                  value: "Perempuan",
+                  title: new Text("Perempuan"),
                   groupValue: _jk,
                   onChanged:(String value){
                     _pilihjk(value);
