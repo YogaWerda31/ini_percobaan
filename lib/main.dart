@@ -20,8 +20,9 @@ class _HomeState extends State<Home> {
 
   String _jk="";
 
-
-
+  TextEditingController controllerNama= new TextEditingController();
+  TextEditingController controllerPass= new TextEditingController();
+  TextEditingController controllerAlamat= new TextEditingController();
 
 void _pilihjk(String value){
   setState(() {
@@ -35,17 +36,26 @@ void _pilihAgama(String value){
   });
 }
 
-void kirimdata(){
+void _kirimdata(){
   AlertDialog alertDialog = new AlertDialog(
     content: new Container(
       height: 200.0,
       child: new Column(
         children: <Widget>[
-          new Text("Nama Lengkap"),
+          new Text("Nama Lengkap: ${controllerNama.text}"),
+          new Text("Password: ${controllerPass.text}"),
+          new Text("Alamat: ${controllerAlamat.text}"),
+          new Text("Jenis Kelamin: $_jk"),
+          new Text("Agama: $_agama"),
+          new RaisedButton(
+            child: new Text("OK"),
+            onPressed: ()=> Navigator.pop(context),
+          )
         ],
       ),
     ),
-  ),
+  );
+  showDialog(builder: (context) => alertDialog, context: context );
 }
   @override
   Widget build(BuildContext context) {
@@ -65,6 +75,7 @@ void kirimdata(){
             child: new Column(
               children: <Widget>[
                 new TextField(
+                  controller: controllerNama,
                   decoration: new InputDecoration(
                     hintText: "Nama Lengkap",
                     labelText: "Nama Lengkap",
@@ -76,6 +87,7 @@ void kirimdata(){
 
                 new Padding(padding: new EdgeInsets.only(top: 20.0),),
                 new TextField(
+                  controller: controllerPass,
                   obscureText: true,
                   decoration: new InputDecoration(
                     hintText: "Password",
@@ -87,6 +99,7 @@ void kirimdata(){
                 ),
                 new Padding(padding: new EdgeInsets.only(top: 20.0),),
                 new TextField(
+                  controller: controllerAlamat,
                   maxLines: 3,
                   decoration: new InputDecoration(
                     hintText: "Alamat",
@@ -144,7 +157,7 @@ void kirimdata(){
                 new RaisedButton(
                   child: new Text("Ok"),
                   color: Colors.red,
-                  onPressed: (){kirimdata ();},
+                  onPressed: (){_kirimdata();},
                 )
 
               ],
