@@ -15,11 +15,12 @@ class _HomeState extends State<Home> {
 
   String _jk="";
 
+
 void _pilihjk(String value){
-    setState(() {
-      _jk=value;
-    });
-  }
+  setState(() {
+    _jk=value;
+  });
+}  
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -75,11 +76,22 @@ void _pilihjk(String value){
                   value: "Laki - Laki",
                   title: new Text("Laki - Laki"),
                   groupValue: _jk,
-                  onChanged: (String value){
+                  onChanged:(String value){
                     _pilihjk(value);
                   },
+                  activeColor: Colors.red,
+
+                ),
+                 new RadioListTile(
+                  value: "Laki - Laki",
+                  title: new Text("Laki - Laki"),
+                  groupValue: _jk,
+                  onChanged:(String value){
+                    _pilihjk(value);
+                  },
+                  activeColor: Colors.red,
                   
-                )
+                ),
               ],
             ),
           ),
